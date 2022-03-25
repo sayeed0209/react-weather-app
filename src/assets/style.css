@@ -1,11 +1,14 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css);
+
+/* style for the Search component */
 .container {
-	background-image: url(../img/banner.svg);
+	/* background-image: url(../img/banner.svg); */
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	width: 100%;
 	height: 100vh;
-	background-color: #95bef4;
+	/* background-color: #95bef4; */
 }
 .search {
 	padding: 0.5rem;
@@ -45,4 +48,45 @@ input:focus {
 	box-shadow: 0 2px 10px #719ece;
 	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
 		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+/* end style for the Search componenet*/
+
+/* style for the waether deatils component */
+.weather--details--container {
+	display: flex;
+	flex-direction: column;
+	margin: 15px auto;
+	/* flex: 0 auto; */
+	background: linear-gradient(
+		90deg,
+		rgba(2, 0, 36, 1) 0%,
+		rgba(75, 81, 189, 0.63) 40%,
+		rgba(0, 212, 255, 1) 100%
+	);
+	width: 20%;
+	height: 450px;
+	border-radius: 15px;
+	color: white;
+	min-width: 325px;
+	padding: 0.5rem;
+}
+.weather--icon--container > i {
+	font-size: 3.5rem;
+	color: rgb(240, 235, 235);
+	padding: 1rem;
+}
+.extra-temp--info {
+	display: flex;
+	justify-content: space-between;
+	margin-top: auto;
+}
+.two-side-section {
+	margin: 50px 8px;
+	width: 100%;
+}
+.weather--max--min{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0 1 auto;
 }
