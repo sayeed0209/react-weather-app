@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-const WeatherDetails = props => {
-	console.log(props);
+const WeatherDetails = ({
+	temp,
+	humidity,
+	pressure,
+	temp_max,
+	temp_min,
+	name,
+	sunrise,
+	sunset,
+	weatherCondition,
+	icon,
+	speed,
+	deg,
+}) => {
 	const [weatherState, setWeatherState] = useState('');
 
 	useEffect(() => {
-		if (props.weatherCondition) {
-			switch (props.weatherCondition) {
+		if (weatherCondition) {
+			switch (weatherCondition) {
 				case 'Clouds':
 					setWeatherState('wi-day-cloudy');
 					break;
@@ -24,13 +36,13 @@ const WeatherDetails = props => {
 					break;
 			}
 		}
-	}, [props.weatherCondition]);
+	}, [weatherCondition]);
 	return (
 		<div
 			className="weather--details--container"
 			style={{
 				background:
-					`${props.icon}` === 'd'
+					`${icon}` === 'd'
 						? `linear-gradient(
             90deg,
             rgba(2, 0, 36, 1) 0%,
@@ -48,11 +60,11 @@ const WeatherDetails = props => {
 			</div>
 			<div className="weather--info">
 				<div className="temperature">
-					<span>{props.temp} &deg;</span>
+					<span>{temp} &deg;</span>
 				</div>
 				<div className="description">
-					<div className="weather-condition">{props.weatherCondition}</div>
-					<div className="place">{props.name}</div>
+					<div className="weather-condition">{weatherCondition}</div>
+					<div className="place">{name}</div>
 				</div>
 			</div>
 			<div className="date">{new Date().toLocaleString()}</div>
@@ -63,7 +75,7 @@ const WeatherDetails = props => {
 							<i className={'wi wi-sunset'}></i>
 						</p>
 						<p className="extra--info--left-side">
-							{props.sunset}
+							{sunset}
 							<br />
 							Sunset
 						</p>
@@ -76,7 +88,7 @@ const WeatherDetails = props => {
 							<i className={'wi wi-humidity'}></i>
 						</p>
 						<p className="extra--info--left-side">
-							{props.humidity}
+							{humidity}
 							<br />
 							Humidity
 						</p>
@@ -88,7 +100,7 @@ const WeatherDetails = props => {
 							<i className={'wi wi-rain'}></i>
 						</p>
 						<p className="extra--info--left-side">
-							{props.pressure}
+							{pressure}
 							<br />
 							Presuure
 						</p>
@@ -100,7 +112,7 @@ const WeatherDetails = props => {
 							<i className={'wi wi-strong-wind'}></i>
 						</p>
 						<p className="extra--info--left-side">
-							{props.speed}
+							{speed}
 							<br />
 							Speed
 						</p>
